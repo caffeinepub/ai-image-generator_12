@@ -1,0 +1,133 @@
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/assets/fonts/Outfit-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0.08 0.005 285;
+    --foreground: 0.96 0.008 285;
+    --card: 0.12 0.015 285;
+    --card-foreground: 0.96 0.008 285;
+    --popover: 0.12 0.015 285;
+    --popover-foreground: 0.96 0.008 285;
+    --primary: 0.65 0.28 305;
+    --primary-foreground: 0.98 0.005 285;
+    --secondary: 0.18 0.02 285;
+    --secondary-foreground: 0.85 0.01 285;
+    --muted: 0.16 0.012 285;
+    --muted-foreground: 0.55 0.02 285;
+    --accent: 0.72 0.25 340;
+    --accent-foreground: 0.98 0.005 285;
+    --destructive: 0.6 0.22 25;
+    --destructive-foreground: 0.98 0.005 285;
+    --border: 0.22 0.025 285;
+    --input: 0.18 0.015 285;
+    --ring: 0.65 0.28 305;
+    --radius: 0.75rem;
+    --chart-1: 0.65 0.28 305;
+    --chart-2: 0.72 0.25 340;
+    --chart-3: 0.68 0.22 260;
+    --chart-4: 0.75 0.18 200;
+    --chart-5: 0.7 0.2 50;
+    --sidebar: 0.1 0.012 285;
+    --sidebar-foreground: 0.96 0.008 285;
+    --sidebar-primary: 0.65 0.28 305;
+    --sidebar-primary-foreground: 0.98 0.005 285;
+    --sidebar-accent: 0.18 0.02 285;
+    --sidebar-accent-foreground: 0.85 0.01 285;
+    --sidebar-border: 0.22 0.025 285;
+    --sidebar-ring: 0.65 0.28 305;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    background-image: radial-gradient(
+        ellipse 80% 50% at 20% 10%,
+        oklch(0.65 0.28 305 / 0.08) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 80% 80%,
+        oklch(0.72 0.25 340 / 0.07) 0%,
+        transparent 50%
+      );
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(
+      135deg,
+      oklch(0.72 0.28 305),
+      oklch(0.75 0.25 340)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    background: oklch(0.13 0.015 285 / 0.7);
+    backdrop-filter: blur(16px);
+    border: 1px solid oklch(0.3 0.04 285 / 0.4);
+  }
+
+  .glow-border {
+    border: 1px solid oklch(0.65 0.28 305 / 0.5);
+    box-shadow: 0 0 20px oklch(0.65 0.28 305 / 0.15), inset 0 0 20px
+      oklch(0.65 0.28 305 / 0.05);
+  }
+
+  .btn-gradient {
+    background: linear-gradient(
+      135deg,
+      oklch(0.55 0.28 305),
+      oklch(0.65 0.25 340)
+    );
+    transition: all 0.3s ease;
+  }
+
+  .btn-gradient:hover {
+    background: linear-gradient(
+      135deg,
+      oklch(0.62 0.3 305),
+      oklch(0.72 0.27 340)
+    );
+    box-shadow: 0 4px 24px oklch(0.65 0.28 305 / 0.4);
+    transform: translateY(-1px);
+  }
+
+  .btn-gradient:active {
+    transform: translateY(0);
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
